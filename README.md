@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Contact List App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple React contact list app. 
 
-## Available Scripts
+## Components
 
-In the project directory, you can run:
+There are 4 components:
 
-### `npm start`
+- App - The main component that renders the entire app
+- Card - Renders a card for each contact
+- Avatar - Renders the avatar image for a contact
+- Details - Renders a detail item (phone or email) for a contact
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## App component
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The App component renders the title, an example avatar image, and a Card component for each contact.
 
-### `npm test`
+The contacts are imported from the contacts.js file and mapped over to generate a card for each one.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Card component
 
-### `npm run build`
+The Card component renders the name, Avatar, and Details components for each contact.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+It takes in the following props:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- name - The name of the contact
+- imgURL - The URL for the avatar image
+- phone - The phone number of the contact
+- email - The email of the contact
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Avatar component
 
-### `npm run eject`
+The Avatar component renders the image for the contact.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+It takes in the imgURL prop and renders an `<img>` with that source.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Details component
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The Details component renders a detail item like phone or email for a contact.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+It takes in a single prop:
 
-## Learn More
+- detailInfo - The info to display (phone or email)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+And renders it in a `<p>` element.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contacts data
 
-### Code Splitting
+The contacts data is defined in contacts.js as an array of objects. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Each object has:
 
-### Analyzing the Bundle Size
+- name 
+- imgURL
+- phone
+- email
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This data is imported in App.jsx and mapped over to create the contact cards.
 
-### Making a Progressive Web App
+So in summary:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- App renders the whole app with Card components 
+- Card renders the contact card with Avatar and Details
+- Avatar renders the image 
+- Details renders the phone/email
+- Contacts provides the data
